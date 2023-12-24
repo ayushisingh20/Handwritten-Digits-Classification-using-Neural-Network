@@ -39,3 +39,34 @@ We check how our reshaped test data looks.
 # Displaying a Flattened Test Image:
 
 We show the computer's simplified view of the first test picture after reshaping.
+
+# Loading the MNIST dataset:
+
+Loaded the dataset using keras.datasets.mnist.load_data().
+Checked the length of training and testing datasets.
+
+# Preprocessing:
+
+Scaled the pixel values of images between 0 and 1.
+Flattened the 2D arrays of images to 1D arrays.
+
+# Building a Neural Network (without hidden layer):
+
+Created a sequential model with one Dense layer having 10 neurons (output neurons for digits 0-9) using the sigmoid activation function.
+Compiled the model with the Adam optimizer, sparse categorical crossentropy loss, and accuracy as the metric.
+Trained the model on the training data for 5 epochs.
+Evaluated the model on the test data.
+
+# Predictions and Confusion Matrix (without hidden layer):
+
+Predicted on the test data and visualized the prediction for the first sample.
+Created a confusion matrix using TensorFlow's confusion_matrix function and visualized it using seaborn.
+
+# Building a Neural Network (with hidden layer):
+
+Created a sequential model with two Dense layers - one hidden layer with 100 neurons and ReLU activation, and one output layer with 10 neurons and sigmoid activation.
+Compiled and trained the model similarly to the previous one.
+
+# Predictions and Confusion Matrix (with hidden layer):
+
+Predicted on the test data and created a new confusion matrix for the model with the hidden layer.
