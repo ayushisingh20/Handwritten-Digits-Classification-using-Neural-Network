@@ -34,21 +34,14 @@ We reshape the pictures into a simpler form, like stacking all the rows of pixel
 
 # Final Data Shape:
 
+x_train_flattened = x_train.reshape(len(x_train),28*28)
+x_test_flattened = x_test.reshape(len(x_test),28*28)
 We check how our reshaped test data looks.
 
 # Displaying a Flattened Test Image:
 
 We show the computer's simplified view of the first test picture after reshaping.
 
-# Loading the MNIST dataset:
-
-Loaded the dataset using keras.datasets.mnist.load_data().
-Checked the length of training and testing datasets.
-
-# Preprocessing:
-
-Scaled the pixel values of images between 0 and 1.
-Flattened the 2D arrays of images to 1D arrays.
 
 # Building a Neural Network (without hidden layer):
 
@@ -56,6 +49,23 @@ Created a sequential model with one Dense layer having 10 neurons (output neuron
 Compiled the model with the Adam optimizer, sparse categorical crossentropy loss, and accuracy as the metric.
 Trained the model on the training data for 5 epochs.
 Evaluated the model on the test data.
+model = keras.Sequential([keras.layers.Dense(10, input_shape=(784,), activation='sigmoid')]) #sequential means I have stack of layers in my neural network thus will accept every layer as one element.
+
+
+ DENSE---->All neurons in one layer are connected with every other neuron in second layer
+ Dense(10--->OUTPUTSHAPE(0-9 neurons), input_shape=(784,)----->784 1D NEURONS , activation='sigmoid')
+
+## Model compilation
+Model compilation is an activity performed after writing the statements in a model and before training starts. It checks for format errors, and defines the loss function, the optimizer or learning rate, and the metrics
+optimizers allow you to train efficiently
+loss = sparse_categorical_crossentropy --->output is categorical: 0-9
+                                       --->sparse: output variable i.e y_train is an interger
+accuracy--->we want an accurate model
+
+
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
 
 # Predictions and Confusion Matrix (without hidden layer):
 
